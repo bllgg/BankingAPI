@@ -111,5 +111,28 @@ class Agent{
         
     }
 
+    function delete(){
+ 
+        // delete query
+        $query = "DELETE FROM bankingagents WHERE agent_id = ?";
+     
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+     
+        // sanitize
+        $this->agent_id=htmlspecialchars(strip_tags($this->agent_id));
+     
+        // bind id of record to delete
+        $stmt->bindParam(1, $this->agent_id);
+     
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+     
+        return false;
+         
+    }
+
 }
 ?>
