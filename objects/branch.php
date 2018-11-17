@@ -32,6 +32,26 @@ class Branch{
 
     // create branches
     function create(){
+        // query to insert record
+        $query = "INSERT INTO branches
+                SET branch_number=:branch_number, city=:city";
+    
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->branch_number = htmlspecialchars(strip_tags($this->branch_number));
+        $this->city = htmlspecialchars(strip_tags($this->city));
+
+        //bind values
+        $stmt->bindParam(":branch_number",$this->branch_number);
+        $stmt->bindParam(":city",$this->city);
+
+        //execute query
+        if ($stmt->execute()){
+            return true;
+        }
+        return false;
 
     }
 

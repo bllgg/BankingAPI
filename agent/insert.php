@@ -31,7 +31,6 @@ if(
     !empty($data->branch_number)
 ){
     
-    //echo json_encode(array("message" => "creating agent. Data is complete."));
     // set product property values
     $agent->agent_id = $data->agent_id;
     $agent->NIC = $data->NIC;
