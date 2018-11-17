@@ -7,14 +7,14 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../config/database.php';
 include_once '../objects/agent.php';
  
-// instantiate database and product object
+// instantiate database and agent object
 $database = new Database();
 $db = $database->getConnection();
 
 // initialize object
 $agent = new Agent($db);
  
-// read products will be here
+// read agent will be here
 
 // query products
 $stmt = $agent->read();
@@ -23,7 +23,7 @@ $num = $stmt->rowCount();
 // check if more than 0 record found
 if($num>0){
  
-    // products array
+    // agent array
     $products_arr=array();
     $products_arr["records"]=array();
  
@@ -56,7 +56,7 @@ if($num>0){
     echo json_encode($products_arr);
 }
 
-// no products found will be here
+// no agents found will be here
 else{
  
     // set response code - 404 Not found

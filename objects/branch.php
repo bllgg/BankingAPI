@@ -16,7 +16,18 @@ class Branch{
 
     // read branches
     function read(){
-
+        // select all query
+        $query = "SELECT * 
+                FROM branches
+                ORDER BY branch_number";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+    
+        return $stmt;
     }
 
     // create branches
@@ -31,7 +42,7 @@ class Branch{
 
     // delete branches
     function delete(){
-        
+
     }
 }
 ?>
