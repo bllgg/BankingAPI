@@ -30,7 +30,7 @@ if($agent->delete()){
     http_response_code(200);
  
     // tell the user
-    echo json_encode(array("message" => "agent was deleted."));
+    echo json_encode(array("message" => "Agent was deleted."));
 }
  
 // if unable to delete the product

@@ -14,16 +14,16 @@ include_once '../objects/agent.php';
 $database = new Database();
 $db = $database->getConnection();
  
-// prepare product object
+// prepare agent object
 $agent = new Agent($db);
  
-// get id of product to be edited
+// get id of agent to be edited
 $data = json_decode(file_get_contents("php://input"));
  
-// set ID property of product to be edited
+// set ID property of agent to be edited
 $agent->agent_id = $data->agent_id;
  
-// set product property values
+// set Agent property values
 $agent->NIC = $data->NIC;
 $agent->telephone = $data->telephone;
 $agent->name = $data->name;
