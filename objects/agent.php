@@ -51,8 +51,8 @@ class Agent{
         $this->NIC=htmlspecialchars(strip_tags($this->NIC));
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->name=htmlspecialchars(strip_tags($this->name));
-        $this->address=htmlspecialchars(strip_tags($this->address));
         $this->agent_details=htmlspecialchars(strip_tags($this->agent_details));
+        $this->address=htmlspecialchars(strip_tags($this->address));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
     
         // bind values
