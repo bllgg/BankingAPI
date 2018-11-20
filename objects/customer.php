@@ -49,7 +49,6 @@ class Customer{
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->address=htmlspecialchars(strip_tags($this->address));
         $this->agent_id=htmlspecialchars(strip_tags($this->agent_id));
-        
 
         // bind values
         $stmt->bindParam(":nic", $this->nic);
