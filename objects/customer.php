@@ -67,6 +67,15 @@ class Customer{
         
     }
 
+    // update the agent
+    function update(){
+
+    }
+
+    function delete(){
+        
+    }
+
 }
 
 ?>

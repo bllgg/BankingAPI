@@ -5,27 +5,27 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/agent.php';
+include_once '../objects/customer.php';
  
-// instantiate database and agent object
+// instantiate database and customer object
 $database = new Database();
 $db = $database->getConnection();
 
 // initialize object
-$agent = new Agent($db);
+$customer = new Customer($db);
  
-// read agent will be here
+// read customer will be here
 
-// query products
-$stmt = $agent->read();
+// query customer
+$stmt = $customer->read();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
 if($num>0){
  
-    // agent array
-    $products_arr=array();
-    $products_arr["records"]=array();
+    // customer array
+    $customers_arr=array();
+    $customers_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -36,24 +36,22 @@ if($num>0){
         // just $name only
         extract($row);
  
-        $product_item=array(
-            "agent_id" => $agent_id,
-            "nic_number" => $nic_number,
-            "telephone_number" => $telephone_number,
+        $customer_item=array(
+            "NIC" => $NIC,
             "name" => $name,
+            "telephone" => $telephone,
             "address" => $address,
-            "agent_details" => $agent_details,
-            "branch_number" => $branch_number
+            "agent_id" => $agent_id
         );
  
-        array_push($products_arr["records"], $product_item);
+        array_push($customers_arr["records"], $customer_item);
     }
  
     // set response code - 200 OK
     http_response_code(200);
  
-    // show products data in json format
-    echo json_encode($products_arr);
+    // show customers data in json format
+    echo json_encode($customers_arr);
 }
 
 // no agents found will be here
@@ -64,7 +62,7 @@ else{
  
     // tell the user no products found
     echo json_encode(
-        array("message" => "No agents found.")
+        array("message" => "No customers found.")
     );
 }
 
