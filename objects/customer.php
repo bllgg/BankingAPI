@@ -68,7 +68,34 @@ class Customer{
 
     // update the agent
     function update(){
+        $query = "UPDATE
+            customers
+            SET name=:name, telephone=:telephone, address=:address, agent_id=:agent_id
+            WHERE nic=:nic";
 
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->nic=htmlspecialchars(strip_tags($this->nic));
+        $this->name=htmlspecialchars(strip_tags($this->name));
+        $this->telephone=htmlspecialchars(strip_tags($this->telephone));
+        $this->address=htmlspecialchars(strip_tags($this->address));
+        $this->agent_id=htmlspecialchars(strip_tags($this->agent_id));
+
+        // bind values
+        $stmt->bindParam(":nic", $this->nic);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":telephone", $this->telephone);
+        $stmt->bindParam(":address", $this->address);
+        $stmt->bindParam(":agent_id", $this->agent_id);
+
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+    
+        return false;
     }
 
     function delete(){
