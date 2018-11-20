@@ -100,7 +100,7 @@ class Customer{
 
     function delete(){
         // delete query
-        $query = "DELETE FROM customers WHERE nic = ?";
+        $query = "DELETE FROM customers WHERE nic =:nic";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -109,7 +109,7 @@ class Customer{
         $this->nic=htmlspecialchars(strip_tags($this->nic));
 
         // bind id of record to delete
-        $stmt->bindParam(1, $this->nic);
+        $stmt->bindParam(":nic", $this->nic);
 
         // execute query
         if($stmt->execute()){
