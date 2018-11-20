@@ -21,6 +21,14 @@ $agent = new Agent($db);
 $data = json_decode(file_get_contents("php://input"));
  
 // make sure data is not empty
+if(empty($data->NIC)){
+    echo json_encode(array("message" => "NIC is empty."));
+}
+
+if(empty($data->telephone)){
+    echo json_encode(array("message" => "telephone is empty."));
+}
+
 if(
     !empty($data->agent_id) &&
     !empty($data->NIC) &&
@@ -30,7 +38,6 @@ if(
     !empty($data->agent_details) &&
     !empty($data->branch_number)
 ){
-    
     // set product property values
     $agent->agent_id = $data->agent_id;
     $agent->NIC = $data->NIC;

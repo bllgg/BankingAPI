@@ -38,8 +38,8 @@ if($num>0){
  
         $product_item=array(
             "agent_id" => $agent_id,
-            "nic_number" => $nic_number,
-            "telephone_number" => telephone_number,
+            "NIC" => $NIC,
+            "telephone" => $telephone,
             "name" => $name,
             "address" => $address,
             "agent_details" => $agent_details,
