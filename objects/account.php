@@ -1,5 +1,6 @@
 <?php
 class Account{
+    
     // database connection and the table name
     private $conn;
     private $table_name = "accounts";
