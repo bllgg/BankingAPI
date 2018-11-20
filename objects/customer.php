@@ -38,7 +38,7 @@ class Customer{
     function create(){
         // query to insert record
         $query = "INSERT INTO customers
-                SET nic=:nic, name=:name, telephone=:telephone, address=:address, agent_id=:agent_id";
+                SET nic= :nic, name= :name, telephone= :telephone, address= :address, agent_id= :agent_id";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -56,7 +56,7 @@ class Customer{
         $stmt->bindParam(":telephone", $this->telephone);
         $stmt->bindParam(":address", $this->address);
         $stmt->bindParam(":agent_id", $this->agent_id);
-
+        
         // execute query
         if($stmt->execute()){
             return true;

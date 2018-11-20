@@ -28,6 +28,13 @@ if(
     !empty($data->address) &&
     !empty($data->agent_id)
 ){
+    // set product property values
+    $customer->nic = $data->nic;
+    $customer->name = $data->name;
+    $customer->telephone = $data->telephone;
+    $customer->address = $data->address;
+    $customer->agent_id = $data->agent_id;
+
     // create the product
     if($customer->create()){
         // set response code - 201 created
