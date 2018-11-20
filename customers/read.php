@@ -37,7 +37,7 @@ if($num>0){
         extract($row);
  
         $customer_item=array(
-            "NIC" => $NIC,
+            "nic" => $nic,
             "name" => $name,
             "telephone" => $telephone,
             "address" => $address,

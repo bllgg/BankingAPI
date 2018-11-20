@@ -6,7 +6,7 @@ class Customer{
     private $table_name = "customers";
 
     //object propoties
-    public $NIC;
+    public $nic;
     public $name;
     public $telephone;
     public $address;
@@ -23,7 +23,7 @@ class Customer{
         // select all query
         $query = "SELECT * 
                 FROM customers
-                ORDER BY NIC";
+                ORDER BY nic";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -38,13 +38,13 @@ class Customer{
     function create(){
         // query to insert record
         $query = "INSERT INTO customers
-                SET NIC=:NIC, name=:name, telephone=:telephone, address=:address, agent_id=:agent_id";
+                SET nic=:nic, name=:name, telephone=:telephone, address=:address, agent_id=:agent_id";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->NIC=htmlspecialchars(strip_tags($this->NIC));
+        $this->nic=htmlspecialchars(strip_tags($this->nic));
         $this->name=htmlspecialchars(strip_tags($this->name));
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->address=htmlspecialchars(strip_tags($this->address));
@@ -52,7 +52,7 @@ class Customer{
         
 
         // bind values
-        $stmt->bindParam(":NIC", $this->NIC);
+        $stmt->bindParam(":nic", $this->nic);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":telephone", $this->telephone);
         $stmt->bindParam(":address", $this->address);
@@ -73,7 +73,24 @@ class Customer{
     }
 
     function delete(){
-        
+        // delete query
+        $query = "DELETE FROM customers WHERE nic = ?";
+
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->nic=htmlspecialchars(strip_tags($this->nic));
+
+        // bind id of record to delete
+        $stmt->bindParam(1, $this->nic);
+
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+     
+        return false;
     }
 
 }
