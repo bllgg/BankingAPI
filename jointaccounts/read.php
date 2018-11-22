@@ -24,8 +24,8 @@ $num = $stmt->rowCount();
 if($num>0){
  
     // agent array
-    $accounts_arr=array();
-    $accounts_arr["records"]=array();
+    $joinedaccounts_arr=array();
+    $joinedaccounts_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -36,7 +36,7 @@ if($num>0){
         // just $name only
         extract($row);
  
-        $account_item=array(
+        $joinedaccount_item=array(
             "accountNumber" => $accountNumber,
             "status" => $status,
             "currentBalance" => $currentBalance,
@@ -44,14 +44,14 @@ if($num>0){
             "branch_number" => $branch_number
         );
  
-        array_push($accounts_arr["records"], $account_item);
+        array_push($joinedaccounts_arr["records"], $joinedaccount_item);
     }
  
     // set response code - 200 OK
     http_response_code(200);
  
     // show products data in json format
-    echo json_encode($accounts_arr);
+    echo json_encode($joinedaccounts_arr);
 }
 
 // no agents found will be here

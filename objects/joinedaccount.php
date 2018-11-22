@@ -19,7 +19,6 @@ class JoinedAccount{
 
     // read accounts
     function read(){
- 
         // select all query
         $query = "SELECT * 
                 FROM jointaccounts
@@ -34,7 +33,7 @@ class JoinedAccount{
         return $stmt;
     }
 
-    // create agent
+    // create JAccount
     function create(){
     
         // query to insert record
