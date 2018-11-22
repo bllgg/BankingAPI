@@ -36,7 +36,7 @@ class Account{
         return $stmt;
     }
 
-    // create agent
+    // create account
     function create(){
     
         // query to insert record
