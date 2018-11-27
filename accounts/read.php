@@ -38,7 +38,6 @@ if($num>0){
  
         $account_item=array(
             "accountNumber" => $accountNumber,
-            "customerNIC" => $customerNIC,
             "accountType" => $accountType,
             "status" => $status,
             "currentBalance" => $currentBalance,

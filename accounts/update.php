@@ -24,7 +24,6 @@ $data = json_decode(file_get_contents("php://input"));
 $account->accountNumber = $data->accountNumber;
 
 // set account property values
-$account->customerNIC = $data->customerNIC;
 $account->accountType = $data->accountType;
 $account->status = $data->status;
 $account->currentBalance = $data->currentBalance;
