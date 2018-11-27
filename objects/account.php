@@ -7,7 +7,6 @@ class Account{
 
     // object propoties
     public $accountNumber;
-    public $customerNIC;
     public $accountType;
     public $status;
     public $currentBalance;
@@ -41,14 +40,13 @@ class Account{
     
         // query to insert record
         $query = "INSERT INTO accounts
-                SET accountNumber=:accountNumber, customerNIC=:customerNIC, accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
+                SET accountNumber=:accountNumber, accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
     
         // sanitize
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
-        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->accountType=htmlspecialchars(strip_tags($this->accountType));
         $this->status=htmlspecialchars(strip_tags($this->status));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
@@ -57,7 +55,6 @@ class Account{
     
         // bind values
         $stmt->bindParam(":accountNumber", $this->accountNumber);
-        $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":accountType", $this->accountType);
         $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
@@ -78,7 +75,7 @@ class Account{
         // query to insert record
         $query = "UPDATE
                 accounts
-                SET customerNIC=:customerNIC, accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
+                SET accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
                 WHERE accountNumber=:accountNumber";
     
         // prepare query
@@ -86,7 +83,6 @@ class Account{
     
         // sanitize
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
-        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->accountType=htmlspecialchars(strip_tags($this->accountType));
         $this->status=htmlspecialchars(strip_tags($this->status));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
@@ -95,7 +91,6 @@ class Account{
     
         // bind values
         $stmt->bindParam(":accountNumber", $this->accountNumber);
-        $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":accountType", $this->accountType);
         $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
