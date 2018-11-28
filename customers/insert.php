@@ -22,14 +22,14 @@ $data = json_decode(file_get_contents("php://input"));
  
 // make sure data is not empty
 if(
-    !empty($data->nic) &&
+    !empty($data->customerNIC) &&
     !empty($data->name) &&
     !empty($data->telephone) &&
     !empty($data->address) &&
     !empty($data->agent_id)
 ){
     // set product property values
-    $customer->nic = $data->nic;
+    $customer->customerNIC = $data->customerNIC;
     $customer->name = $data->name;
     $customer->telephone = $data->telephone;
     $customer->address = $data->address;

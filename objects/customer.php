@@ -6,7 +6,7 @@ class Customer{
     private $table_name = "customers";
 
     //object propoties
-    public $nic;
+    public $customerNIC;
     public $name;
     public $telephone;
     public $address;
@@ -23,7 +23,7 @@ class Customer{
         // select all query
         $query = "SELECT * 
                 FROM customers
-                ORDER BY nic";
+                ORDER BY customerNIC";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -38,20 +38,20 @@ class Customer{
     function create(){
         // query to insert record
         $query = "INSERT INTO customers
-                SET nic= :nic, name= :name, telephone= :telephone, address= :address, agent_id= :agent_id";
+                SET customerNIC= :customerNIC, name= :name, telephone= :telephone, address= :address, agent_id= :agent_id";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->nic=htmlspecialchars(strip_tags($this->nic));
+        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->name=htmlspecialchars(strip_tags($this->name));
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->address=htmlspecialchars(strip_tags($this->address));
         $this->agent_id=htmlspecialchars(strip_tags($this->agent_id));
 
         // bind values
-        $stmt->bindParam(":nic", $this->nic);
+        $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":telephone", $this->telephone);
         $stmt->bindParam(":address", $this->address);
@@ -71,20 +71,20 @@ class Customer{
         $query = "UPDATE
             customers
             SET name=:name, telephone=:telephone, address=:address, agent_id=:agent_id
-            WHERE nic=:nic";
+            WHERE customerNIC=:customerNIC";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->nic=htmlspecialchars(strip_tags($this->nic));
+        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->name=htmlspecialchars(strip_tags($this->name));
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->address=htmlspecialchars(strip_tags($this->address));
         $this->agent_id=htmlspecialchars(strip_tags($this->agent_id));
 
         // bind values
-        $stmt->bindParam(":nic", $this->nic);
+        $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":telephone", $this->telephone);
         $stmt->bindParam(":address", $this->address);
@@ -100,16 +100,16 @@ class Customer{
 
     function delete(){
         // delete query
-        $query = "DELETE FROM customers WHERE nic =:nic";
+        $query = "DELETE FROM customers WHERE customerNIC =:customerNIC";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->nic=htmlspecialchars(strip_tags($this->nic));
+        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
 
         // bind id of record to delete
-        $stmt->bindParam(":nic", $this->nic);
+        $stmt->bindParam(":customerNIC", $this->customerNIC);
 
         // execute query
         if($stmt->execute()){

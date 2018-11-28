@@ -21,7 +21,7 @@ $customer = new Customer($db);
 $data = json_decode(file_get_contents("php://input"));
 
 // set ID property of branch to be edited
-$customer->nic = $data->nic;
+$customer->customerNIC = $data->customerNIC;
 
 // set branch property values
 $customer->name = $data->name;
