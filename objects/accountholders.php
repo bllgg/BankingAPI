@@ -6,8 +6,8 @@ class AccountHolder{
     private $table_name = "accountholders";
 
     //object propoties
-    public $acountNumber;
-    public $cutomerNIC;
+    public $accountNumber;
+    public $customerNIC;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -20,7 +20,7 @@ class AccountHolder{
         // select all query
         $query = "SELECT * 
                 FROM accountholders
-                ORDER BY acountNumber";
+                ORDER BY accountNumber";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -35,18 +35,18 @@ class AccountHolder{
     function create(){
         // query to insert record
         $query = "INSERT INTO accountholders
-                SET acountNumber= :acountNumber, cutomerNIC= :cutomerNIC";
+                SET accountNumber= :accountNumber, customerNIC= :customerNIC";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->acountNumber=htmlspecialchars(strip_tags($this->acountNumber));
-        $this->cutomerNIC=htmlspecialchars(strip_tags($this->cutomerNIC));
+        $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
+        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
 
         // bind values
-        $stmt->bindParam(":acountNumber", $this->acountNumber);
-        $stmt->bindParam(":cutomerNIC", $this->cutomerNIC);
+        $stmt->bindParam(":accountNumber", $this->accountNumber);
+        $stmt->bindParam(":customerNIC", $this->customerNIC);
         
         // execute query
         if($stmt->execute()){
@@ -61,19 +61,19 @@ class AccountHolder{
     function update(){
         $query = "UPDATE
             accountholders
-            SET cutomerNIC=:cutomerNIC
-            WHERE acountNumber=:acountNumber";
+            SET customerNIC=:customerNIC
+            WHERE accountNumber=:accountNumber";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->acountNumber=htmlspecialchars(strip_tags($this->acountNumber));
-        $this->cutomerNIC=htmlspecialchars(strip_tags($this->cutomerNIC));
+        $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
+        $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
 
         // bind values
-        $stmt->bindParam(":acountNumber", $this->acountNumber);
-        $stmt->bindParam(":cutomerNIC", $this->cutomerNIC);
+        $stmt->bindParam(":accountNumber", $this->accountNumber);
+        $stmt->bindParam(":customerNIC", $this->customerNIC);
 
         // execute query
         if($stmt->execute()){
