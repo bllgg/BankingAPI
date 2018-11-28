@@ -40,6 +40,7 @@ if($num>0){
             "accountNumber" => $accountNumber,
             "accountType" => $accountType,
             "status" => $status,
+            "openDate" => $openDate,
             "currentBalance" => $currentBalance,
             "accountDetails" => $accountDetails,
             "branch_number" => $branch_number

@@ -25,6 +25,7 @@ if(
     !empty($data->accountNumber) &&
     !empty($data->accountType) &&
     !empty($data->status) &&
+    !empty($data->openDate) &&
     !empty($data->currentBalance) &&
     !empty($data->accountDetails) &&
     !empty($data->branch_number)
@@ -34,6 +35,7 @@ if(
     $account->accountNumber = $data->accountNumber;
     $account->accountType = $data->accountType;
     $account->status = $data->status;
+    $account->openDate = $data->openDate;
     $account->currentBalance = $data->currentBalance;
     $account->accountDetails = $data->accountDetails;
     $account->branch_number = $data->branch_number;

@@ -10,6 +10,7 @@ class Account{
     public $accountType;
     public $status;
     public $currentBalance;
+    public $openDate;
     public $accountDetails;
     public $branch_number;
 
@@ -49,6 +50,7 @@ class Account{
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->accountType=htmlspecialchars(strip_tags($this->accountType));
         $this->status=htmlspecialchars(strip_tags($this->status));
+        $this->openDate=htmlspecialchars(strip_tags($this->openDate));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
         $this->accountDetails=htmlspecialchars(strip_tags($this->accountDetails));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
@@ -57,6 +59,7 @@ class Account{
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":accountType", $this->accountType);
         $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":openDate", $this->openDate);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
         $stmt->bindParam(":branch_number", $this->branch_number);
@@ -85,6 +88,7 @@ class Account{
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->accountType=htmlspecialchars(strip_tags($this->accountType));
         $this->status=htmlspecialchars(strip_tags($this->status));
+        $this->openDate=htmlspecialchars(strip_tags($this->openDate));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
         $this->accountDetails=htmlspecialchars(strip_tags($this->accountDetails));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
@@ -93,6 +97,7 @@ class Account{
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":accountType", $this->accountType);
         $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":openDate", $this->openDate);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
         $stmt->bindParam(":branch_number", $this->branch_number);

@@ -26,6 +26,7 @@ $account->accountNumber = $data->accountNumber;
 // set account property values
 $account->accountType = $data->accountType;
 $account->status = $data->status;
+$account->openDate = $data->openDate;
 $account->currentBalance = $data->currentBalance;
 $account->accountDetails = $data->accountDetails;
 $account->branch_number = $data->branch_number;
