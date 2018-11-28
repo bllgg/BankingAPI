@@ -37,6 +37,7 @@ if($num>0){
         extract($row);
  
         $fixedaccount_item=array(
+            "FaccountNumber" => $FaccountNumber,
             "accountNumber" => $accountNumber,
             "customerNIC" => $customerNIC,
             "status" => $status,

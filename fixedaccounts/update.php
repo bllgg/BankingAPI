@@ -21,9 +21,10 @@ $fixedaccount = new FixedAccount($db);
 $data = json_decode(file_get_contents("php://input"));
  
 // set ID property of account to be edited
-$fixedaccount->accountNumber = $data->accountNumber;
+$fixedaccount->FaccountNumber = $data->FaccountNumber;
 
 // set account property values
+$fixedaccount->accountNumber = $data->accountNumber;
 $fixedaccount->customerNIC = $data->customerNIC;
 $fixedaccount->status = $data->status;
 $fixedaccount->duration = $data->duration;

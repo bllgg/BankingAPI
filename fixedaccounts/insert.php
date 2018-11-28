@@ -22,6 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
  
 // make sure data is not empty
 if(
+    !empty($data->FaccountNumber) &&
     !empty($data->accountNumber) &&
     !empty($data->customerNIC) &&
     !empty($data->status) &&
@@ -33,6 +34,7 @@ if(
 ){
     
     // set product property values
+    $fixedaccount->FaccountNumber = $data->FaccountNumber;
     $fixedaccount->accountNumber = $data->accountNumber;
     $fixedaccount->customerNIC = $data->customerNIC;
     $fixedaccount->status = $data->status;

@@ -6,6 +6,7 @@ class FixedAccount{
     private $table_name = "fixedaccounts";
 
     // object propoties
+    public $FaccountNumber;
     public $accountNumber;
     public $customerNIC;
     public $status;
@@ -26,7 +27,7 @@ class FixedAccount{
         // select all query
         $query = "SELECT * 
                 FROM fixedaccounts
-                ORDER BY accountNumber";
+                ORDER BY FaccountNumber";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -42,12 +43,13 @@ class FixedAccount{
     
         // query to insert record
         $query = "INSERT INTO fixedaccounts
-                SET accountNumber=:accountNumber, customerNIC=:customerNIC,  status=:status, duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
+                SET FaccountNumber=:FaccountNumber, accountNumber=:accountNumber, customerNIC=:customerNIC,  status=:status, duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
     
         // sanitize
+        $this->FaccountNumber=htmlspecialchars(strip_tags($this->FaccountNumber));
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->status=htmlspecialchars(strip_tags($this->status));
@@ -58,6 +60,7 @@ class FixedAccount{
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
     
         // bind values
+        $stmt->bindParam(":FaccountNumber", $this->FaccountNumber);
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
@@ -82,12 +85,13 @@ class FixedAccount{
         $query = "UPDATE
                 fixedaccounts
                 SET customerNIC=:customerNIC, status=:status, duration=:duration, openDate=:openDate , currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
-                WHERE accountNumber=:accountNumber";
+                WHERE FaccountNumber=:FaccountNumber";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
     
         // sanitize
+        $this->FaccountNumber=htmlspecialchars(strip_tags($this->FaccountNumber));
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->status=htmlspecialchars(strip_tags($this->status));
@@ -98,6 +102,7 @@ class FixedAccount{
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
     
         // bind values
+        $stmt->bindParam(":FaccountNumber", $this->FaccountNumber);
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
