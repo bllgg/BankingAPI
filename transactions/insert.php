@@ -35,15 +35,15 @@ if(
 
 ){
     // set product property values
+    $transactions->transactionID = $data->transactionID;
     $transactions->accountNumber = $data->accountNumber;
-    $transactions->customerNIC = $data->customerNIC;
-    $transactions->accountNumber = $data->accountNumber;
-    $transactions->customerNIC = $data->customerNIC;
-    $transactions->accountNumber = $data->accountNumber;
-    $transactions->customerNIC = $data->customerNIC;
-    $transactions->accountNumber = $data->accountNumber;
-    $transactions->customerNIC = $data->customerNIC;
-    $transactions->accountNumber = $data->accountNumber;
+    $transactions->agent_id = $data->agent_id;
+    $transactions->transactionType = $data->transactionType;
+    $transactions->date = $data->date;
+    $transactions->time = $data->time;
+    $transactions->amount = $data->amount;
+    $transactions->details = $data->details;
+    $transactions->charges = $data->charges;
 
     // create the product
     if($transactions->create()){

@@ -37,8 +37,6 @@ if($num>0){
         extract($row);
  
         $transactions_item=array(
-            "accountNumber" => $accountNumber,
-            "customerNIC" => $customerNIC,
             "transactionID" => $transactionID,
             "accountNumber" => $accountNumber,
             "agent_id" => $agent_id,
