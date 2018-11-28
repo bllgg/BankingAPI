@@ -27,6 +27,7 @@ $fixedaccount->accountNumber = $data->accountNumber;
 $fixedaccount->customerNIC = $data->customerNIC;
 $fixedaccount->status = $data->status;
 $fixedaccount->duration = $data->duration;
+$fixedaccount->openDate = $data->openDate;
 $fixedaccount->currentBalance = $data->currentBalance;
 $fixedaccount->accountDetails = $data->accountDetails;
 $fixedaccount->branch_number = $data->branch_number;

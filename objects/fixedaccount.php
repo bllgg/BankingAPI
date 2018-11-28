@@ -10,6 +10,7 @@ class FixedAccount{
     public $customerNIC;
     public $status;
     public $duration;
+    public $openDate;
     public $currentBalance;
     public $accountDetails;
     public $branch_number;
@@ -50,6 +51,7 @@ class FixedAccount{
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->status=htmlspecialchars(strip_tags($this->status));
+        $this->openDate=htmlspecialchars(strip_tags($this->openDate));
         $this->duration=htmlspecialchars(strip_tags($this->duration));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
         $this->accountDetails=htmlspecialchars(strip_tags($this->accountDetails));
@@ -59,6 +61,7 @@ class FixedAccount{
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":status", $this->openDate);
         $stmt->bindParam(":duration", $this->duration);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
@@ -78,7 +81,7 @@ class FixedAccount{
         // query to insert record
         $query = "UPDATE
                 fixedaccounts
-                SET customerNIC=:customerNIC, status=:status, duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
+                SET customerNIC=:customerNIC, status=:status, duration=:duration, openDate=:openDate , currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
                 WHERE accountNumber=:accountNumber";
     
         // prepare query
@@ -89,6 +92,7 @@ class FixedAccount{
         $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->status=htmlspecialchars(strip_tags($this->status));
         $this->duration=htmlspecialchars(strip_tags($this->duration));
+        $this->openDate=htmlspecialchars(strip_tags($this->openDate));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
         $this->accountDetails=htmlspecialchars(strip_tags($this->accountDetails));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
@@ -98,6 +102,7 @@ class FixedAccount{
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":duration", $this->duration);
+        $stmt->bindParam(":openDate", $this->openDate);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
         $stmt->bindParam(":branch_number", $this->branch_number);

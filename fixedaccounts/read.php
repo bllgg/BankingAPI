@@ -41,6 +41,7 @@ if($num>0){
             "customerNIC" => $customerNIC,
             "status" => $status,
             "duration" => $duration,
+            "openDate" => $openDate,
             "currentBalance" => $currentBalance,
             "accountDetails" => $accountDetails,
             "branch_number" => $branch_number

@@ -26,6 +26,7 @@ if(
     !empty($data->customerNIC) &&
     !empty($data->status) &&
     !empty($data->duration) &&
+    !empty($data->openDate) &&
     !empty($data->currentBalance) &&
     !empty($data->accountDetails) &&
     !empty($data->branch_number)
@@ -36,6 +37,7 @@ if(
     $fixedaccount->customerNIC = $data->customerNIC;
     $fixedaccount->status = $data->status;
     $fixedaccount->duration = $data->duration;
+    $fixedaccount->openDate = $data->openDate;
     $fixedaccount->currentBalance = $data->currentBalance;
     $fixedaccount->accountDetails = $data->accountDetails;
     $fixedaccount->branch_number = $data->branch_number;
