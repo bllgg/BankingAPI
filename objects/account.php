@@ -9,8 +9,8 @@ class Account{
     public $accountNumber;
     public $accountType;
     public $status;
-    public $currentBalance;
     public $openDate;
+    public $currentBalance;
     public $accountDetails;
     public $branch_number;
 
@@ -41,7 +41,7 @@ class Account{
     
         // query to insert record
         $query = "INSERT INTO accounts
-                SET accountNumber=:accountNumber, accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
+                SET accountNumber=:accountNumber, accountType=:accountType, status=:status, openDate=:openDate; currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -78,7 +78,7 @@ class Account{
         // query to insert record
         $query = "UPDATE
                 accounts
-                SET accountType=:accountType, status=:status, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
+                SET accountType=:accountType, status=:status, openDate=:openDate, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
                 WHERE accountNumber=:accountNumber";
     
         // prepare query
