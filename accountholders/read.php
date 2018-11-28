@@ -5,14 +5,14 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/joinedAccountHolders.php';
+include_once '../objects/accountholder.php';
  
 // instantiate database and customer object
 $database = new Database();
 $db = $database->getConnection();
 
 // initialize object
-$jah = new JoinedAccountHolder($db);
+$jah = new AccountHolder($db);
  
 // read customer will be here
 
@@ -37,8 +37,8 @@ if($num>0){
         extract($row);
  
         $jah_item=array(
-            "acountNumber" => $acountNumber,
-            "cutomerNIC" => $cutomerNIC
+            "accountNumber" => $accountNumber,
+            "customerNIC" => $customerNIC
         );
  
         array_push($jah_arr["records"], $jah_item);

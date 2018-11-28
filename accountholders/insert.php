@@ -10,32 +10,32 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../config/database.php';
  
 // instantiate customer object
-include_once '../objects/jointaccountholders.php';
+include_once '../objects/accountholders.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
-$jah = new JoinedAccountHolder($db);
+$jah = new AccountHolder($db);
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
  
 // make sure data is not empty
 if(
-    !empty($data->acountNumber) &&
-    !empty($data->cutomerNIC)
+    !empty($data->accountNumber) &&
+    !empty($data->customerNIC)
 ){
     // set product property values
-    $jah->nic = $data->nic;
-    $jah->name = $data->name;
+    $jah->accountNumber = $data->accountNumber;
+    $jah->customerNIC = $data->customerNIC;
 
     // create the product
-    if($customer->create()){
+    if($jah->create()){
         // set response code - 201 created
         http_response_code(201);
  
         // tell the user
-        echo json_encode(array("message" => "customer was created."));
+        echo json_encode(array("message" => "account holder was created."));
     }
 
     else{
@@ -43,7 +43,7 @@ if(
         http_response_code(503);
  
         // tell the user
-        echo json_encode(array("message" => "Unable to create customer."));
+        echo json_encode(array("message" => "Unable to create account holder."));
     }
 }
 
@@ -54,7 +54,7 @@ else{
     http_response_code(400);
  
     // tell the user
-    echo json_encode(array("message" => "Unable to create customer. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to create account holder. Data is incomplete."));
 }
 
 ?>
