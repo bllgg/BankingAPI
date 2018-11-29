@@ -3,7 +3,7 @@ class FixedAccount{
     
     // database connection and the table name
     private $conn;
-    private $table_name = "fixedaccounts";
+    private $table_name = "fixedAccounts";
 
     // object propoties
     public $FaccountNumber;
@@ -26,7 +26,7 @@ class FixedAccount{
  
         // select all query
         $query = "SELECT * 
-                FROM fixedaccounts
+                FROM fixedAccounts
                 ORDER BY FaccountNumber";
     
         // prepare query statement
@@ -42,8 +42,8 @@ class FixedAccount{
     function create(){
     
         // query to insert record
-        $query = "INSERT INTO fixedaccounts
-                SET FaccountNumber=:FaccountNumber, accountNumber=:accountNumber, customerNIC=:customerNIC,  status=:status, duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
+        $query = "INSERT INTO fixedAccounts
+                SET FaccountNumber=:FaccountNumber, accountNumber=:accountNumber, customerNIC=:customerNIC,  status=:status, openDate=:openDate, duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -64,7 +64,7 @@ class FixedAccount{
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
-        $stmt->bindParam(":status", $this->openDate);
+        $stmt->bindParam(":openDate", $this->openDate);
         $stmt->bindParam(":duration", $this->duration);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
@@ -83,8 +83,8 @@ class FixedAccount{
     
         // query to insert record
         $query = "UPDATE
-                fixedaccounts
-                SET customerNIC=:customerNIC, status=:status, duration=:duration, openDate=:openDate , currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
+                fixedAccounts
+                SET accountNumber=:accountNumber, customerNIC=:customerNIC, status=:status, openDate=:openDate , duration=:duration, currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number
                 WHERE FaccountNumber=:FaccountNumber";
     
         // prepare query
@@ -95,8 +95,8 @@ class FixedAccount{
         $this->accountNumber=htmlspecialchars(strip_tags($this->accountNumber));
         $this->customerNIC=htmlspecialchars(strip_tags($this->customerNIC));
         $this->status=htmlspecialchars(strip_tags($this->status));
-        $this->duration=htmlspecialchars(strip_tags($this->duration));
         $this->openDate=htmlspecialchars(strip_tags($this->openDate));
+        $this->duration=htmlspecialchars(strip_tags($this->duration));
         $this->currentBalance=htmlspecialchars(strip_tags($this->currentBalance));
         $this->accountDetails=htmlspecialchars(strip_tags($this->accountDetails));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
@@ -106,8 +106,8 @@ class FixedAccount{
         $stmt->bindParam(":accountNumber", $this->accountNumber);
         $stmt->bindParam(":customerNIC", $this->customerNIC);
         $stmt->bindParam(":status", $this->status);
-        $stmt->bindParam(":duration", $this->duration);
         $stmt->bindParam(":openDate", $this->openDate);
+        $stmt->bindParam(":duration", $this->duration);
         $stmt->bindParam(":currentBalance", $this->currentBalance);
         $stmt->bindParam(":accountDetails", $this->accountDetails);
         $stmt->bindParam(":branch_number", $this->branch_number);

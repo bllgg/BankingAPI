@@ -3,7 +3,7 @@ class Agent{
     
     // database connection and the table name
     private $conn;
-    private $table_name = "bankingagents";
+    private $table_name = "bankingAgents";
 
     // object propoties
     public $agent_id;
@@ -24,7 +24,7 @@ class Agent{
  
         // select all query
         $query = "SELECT * 
-                FROM bankingagents
+                FROM bankingAgents
                 ORDER BY agent_id";
     
         // prepare query statement
@@ -40,7 +40,7 @@ class Agent{
     function create(){
     
         // query to insert record
-        $query = "INSERT INTO bankingagents
+        $query = "INSERT INTO bankingAgents
                 SET agent_id=:agent_id, NIC=:NIC, telephone=:telephone, name=:name, address=:address, agent_details=:agent_details, branch_number=:branch_number";
     
         // prepare query
@@ -51,8 +51,8 @@ class Agent{
         $this->NIC=htmlspecialchars(strip_tags($this->NIC));
         $this->telephone=htmlspecialchars(strip_tags($this->telephone));
         $this->name=htmlspecialchars(strip_tags($this->name));
-        $this->agent_details=htmlspecialchars(strip_tags($this->agent_details));
         $this->address=htmlspecialchars(strip_tags($this->address));
+        $this->agent_details=htmlspecialchars(strip_tags($this->agent_details));
         $this->branch_number=htmlspecialchars(strip_tags($this->branch_number));
     
         // bind values
@@ -77,7 +77,7 @@ class Agent{
     function update(){
 
         $query = "UPDATE
-                bankingagents
+                bankingAgents
                 SET NIC=:NIC, telephone=:telephone, name=:name, address=:address, agent_details=:agent_details, branch_number=:branch_number
                 WHERE agent_id=:agent_id";
 

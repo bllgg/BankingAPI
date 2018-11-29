@@ -3,7 +3,7 @@ class AccountHolder{
 
     // database connection and the table name
     private $conn;
-    private $table_name = "accountholders";
+    private $table_name = "AccountHolders";
 
     //object propoties
     public $accountNumber;
@@ -19,7 +19,7 @@ class AccountHolder{
  
         // select all query
         $query = "SELECT * 
-                FROM accountholders
+                FROM AccountHolders
                 ORDER BY accountNumber";
     
         // prepare query statement
@@ -34,7 +34,7 @@ class AccountHolder{
     //create account holder
     function create(){
         // query to insert record
-        $query = "INSERT INTO accountholders
+        $query = "INSERT INTO AccountHolders
                 SET accountNumber= :accountNumber, customerNIC= :customerNIC";
 
         // prepare query
@@ -60,7 +60,7 @@ class AccountHolder{
     // update the account holder
     function update(){
         $query = "UPDATE
-            accountholders
+            AccountHolders
             SET customerNIC=:customerNIC
             WHERE accountNumber=:accountNumber";
 

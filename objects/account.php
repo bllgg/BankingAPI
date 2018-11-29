@@ -41,7 +41,7 @@ class Account{
     
         // query to insert record
         $query = "INSERT INTO accounts
-                SET accountNumber=:accountNumber, accountType=:accountType, status=:status, openDate=:openDate; currentBalance=:currentBalance, accountDetails=:accountDetails, branch_number=:branch_number";
+                SET accountNumber= :accountNumber, accountType= :accountType, status= :status, openDate= :openDate; currentBalance= :currentBalance, accountDetails= :accountDetails, branch_number= :branch_number";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
